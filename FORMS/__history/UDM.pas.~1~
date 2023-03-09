@@ -1,0 +1,28 @@
+unit UDM;
+
+interface
+
+uses
+  SysUtils, Classes, DBXpress, FMTBcd, DB, DBClient, Provider, SqlExpr;
+
+type
+  TDataModule1 = class(TDataModule)
+    Conexao: TSQLConnection;
+    sqlMovimento: TSQLDataSet;
+    dspMovimento: TDataSetProvider;
+    cdsMovimento: TClientDataSet;
+    dtsMovimento: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{$R *.dfm}
+
+end.

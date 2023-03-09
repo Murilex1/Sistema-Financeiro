@@ -1,0 +1,58 @@
+unit UUsuario;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DBCtrls, ExtCtrls;
+
+type
+  TFrmUsuario = class(TForm)
+    PnlRodape: TPanel;
+    DBNavigator1: TDBNavigator;
+    PnlTopo: TPanel;
+    BtnPesquisar: TBitBtn;
+    BtnAtualizar: TBitBtn;
+    BtnCancelar: TBitBtn;
+    BtnGravar: TBitBtn;
+    BtnDeletar: TBitBtn;
+    BtnEditar: TBitBtn;
+    BtnNovo: TBitBtn;
+    BtnSair: TBitBtn;
+    procedure BtnNovoClick(Sender: TObject);
+    procedure BtnSairClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmUsuario: TFrmUsuario;
+
+implementation
+
+uses UDM, UMovimento;
+
+{$R *.dfm}
+
+procedure TFrmUsuario.BtnNovoClick(Sender: TObject);
+var proximo: Integer;
+begin
+
+  Tratabotao();
+  dm.cdsMovimento.Open;   //Abre a tabela
+  dm.cdsMovimento.Last;   // Vai para o ultimo registro da tabela
+  proximo:= dm.cdsMovimentoIDMOVIMENTO.AsInteger + 1;   //Recebe o valor do ultimo registro e vai para o proximo '+1'
+  dm.cdsMovimento.Append;  //Adiciona mais uma coluna em branco para adionar um novo registro
+  dm.cdsMovimentoIDMOVIMENTO.AsInteger := proximo;   //O campo ID recebe o valor da variavel proximo
+  DBEdit3.SetFocus;   //Leva o foco para o DBEdit3
+  dm.cdsMovimentoCADASTRO.AsDateTime:=Date;  //O campo CADASTRO recebe a data atualizada
+end;
+
+procedure TFrmUsuario.BtnSairClick(Sender: TObject);
+begin
+  Close;
+end;
+
+end.

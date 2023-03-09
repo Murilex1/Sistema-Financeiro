@@ -1,0 +1,64 @@
+unit UPesquisaUsuario;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, DBCtrls, StdCtrls, Mask, Buttons, ExtCtrls;
+
+type
+  TFrmPesquisaUsuario = class(TForm)
+    PnlTopo: TPanel;
+    LblChave: TLabel;
+    LblDescricao: TLabel;
+    LblInicio: TLabel;
+    LblFim: TLabel;
+    BtnTransferir: TBitBtn;
+    BtnPesquisa: TBitBtn;
+    BtnImprimir: TBitBtn;
+    EdtDescricao: TEdit;
+    MKInicio: TMaskEdit;
+    MKFim: TMaskEdit;
+    CBChave: TComboBox;
+    PnlRodape: TPanel;
+    LblQtde: TLabel;
+    LblEntrada: TLabel;
+    LblSaida: TLabel;
+    LblCaixa: TLabel;
+    BtnSair: TBitBtn;
+    DBNavigator1: TDBNavigator;
+    DBGrid1: TDBGrid;
+    procedure BtnPesquisaClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmPesquisaUsuario: TFrmPesquisaUsuario;
+
+implementation
+
+uses UDM;
+
+{$R *.dfm}
+
+procedure TFrmPesquisaUsuario.BtnPesquisaClick(Sender: TObject);
+begin
+  //Fechando e abrindo o SELECT no DBGrid
+  dm.cdsPesquisa.Close;
+  dm.sqlPesquisa.CommandText := 'SELECT * FROM USUARIO';
+  dm.cdsPesquisa.Open;
+
+  //Opções de pesquisa
+  case CBChave.ItemIndex of
+  begin
+  
+  end;
+
+  end;
+
+end;
+
+end.

@@ -1,0 +1,24 @@
+unit UMenu;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  TFrmMenu = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmMenu: TFrmMenu;
+
+implementation
+
+{$R *.dfm}
+
+end.

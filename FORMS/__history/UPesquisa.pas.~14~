@@ -1,0 +1,233 @@
+unit UPesquisa;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ExtCtrls, DBCtrls, Mask, Grids, DBGrids;
+
+type
+  TFrmPesquisa = class(TForm)
+    PnlTopo: TPanel;
+    PnlRodape: TPanel;
+    BtnTransferir: TBitBtn;
+    BtnPesquisa: TBitBtn;
+    BtnImprimir: TBitBtn;
+    BtnSair: TBitBtn;
+    DBNavigator1: TDBNavigator;
+    EdtDescricao: TEdit;
+    MKInicio: TMaskEdit;
+    MKFim: TMaskEdit;
+    LblChave: TLabel;
+    LblDescricao: TLabel;
+    LblInicio: TLabel;
+    LblFim: TLabel;
+    DBGrid1: TDBGrid;
+    CBChave: TComboBox;
+    LblQtde: TLabel;
+    LblEntrada: TLabel;
+    LblSaida: TLabel;
+    LblCaixa: TLabel;
+    procedure BtnPesquisaClick(Sender: TObject);
+    procedure CBChaveChange(Sender: TObject);
+    procedure BtnSairClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmPesquisa: TFrmPesquisa;
+  Entrada, Saida, Caixa:Real;
+
+implementation
+
+uses UDM, DB;
+
+{$R *.dfm}
+
+procedure TFrmPesquisa.BtnPesquisaClick(Sender: TObject);
+begin
+  //Consulta com o botão
+  dm.cdsPesquisa.close;
+  dm.sqlPesquisa.CommandText := 'SELECT * FROM MOVIMENTO';
+  dm.cdsPesquisa.Open;
+
+  //Opções de pesquisa por código
+  case CBChave.ItemIndex of
+    0:
+    begin
+      if EdtDescricao.Text = '' then
+      begin
+        Application.MessageBox('Campo está em branco!', 'Erro', MB_ICONINFORMATION+MB_OK);
+        Exit;
+      end;
+
+      dm.cdsPesquisa.Close;
+      dm.sqlPesquisa.CommandText := 'SELECT * FROM MOVIMENTO WHERE IDMOVIMENTO = '''+EdtDescricao.Text+'''';
+      dm.cdsPesquisa.Open;
+    end;
+
+    //Opção de pesquisa por TIPO
+    1:
+    begin
+      if EdtDescricao.Text = '' then
+      begin
+        Application.MessageBox('Campo está em branco', 'Erro', MB_ICONINFORMATION+MB_OK);
+        Exit;
+      end;
+
+      dm.cdsPesquisa.Close;
+      dm.sqlPesquisa.CommandText := 'SELECT * FROM MOVIMENTO WHERE TIPO = '''+EdtDescricao.Text+'''';
+      //showMessage(dm.sqlPesquisa.CommandText); Mensagem para visualziar o Select
+      dm.cdsPesquisa.Open;
+    end;
+
+    //Opção de pesquisa por DATA
+    2:
+    begin
+      if MKInicio.Text = '' then
+      begin
+        Application.MessageBox('O campo está em branco', 'Erro', MB_ICONINFORMATION+MB_OK);
+        Exit;
+      end;
+
+      dm.cdsPesquisa.Close;
+      dm.sqlPesquisa.CommandText := 'SELECT * FROM MOVIMENTO WHERE CADASTRO '''+MKInicio.Text+'%''';
+//    ShowMessage(dm.sqlPesquisa.CommandText);
+      dm.cdsPesquisa.Open;
+    end;
+
+    3:
+    begin
+      if MKFim.Text = '' then
+      begin
+        Application.MessageBox('O campo está em branco', 'Erro', MB_ICONINFORMATION+MB_OK);
+        Exit;
+      end;
+
+      dm.cdsPesquisa.Close;
+      dm.sqlPesquisa.CommandText := 'SELECT * FROM MOVIMENTO WHERE CADASTRO BETWEEN '''+MKFim.Text+'''';
+      dm.cdsPesquisa.Open;
+    end;
+
+      //Selecionar todo os campos
+    4:
+    begin
+      dm.cdsPesquisa.Close;
+      dm.sqlPesquisa.CommandText := 'SELECT * FROM MOVIMENTO ORDER BY IDMOVIMENTO';
+      dm.cdsPesquisa.Open;
+    end;
+  end;
+
+  //Mostra a quantidade de registro
+  LblQtde.Caption:=InttoStr(dm.cdsPesquisa.RecordCount);
+
+  //Soma a Entrada
+  dm.cdsPesquisa.First;
+  while not dm.cdsPesquisa.Eof do
+  begin
+    if dm.cdsPesquisaTIPO.AsString ='ENTRADA' then
+    begin
+      Entrada := Entrada + dm.cdsPesquisaVALOR.AsFloat;
+    end;
+    DM.cdsPesquisa.Next;
+  end;
+  LblEntrada.Caption :=formatfloat('R$ ##,##0.00',entrada);
+
+  if dm.cdsPesquisa.IsEmpty then
+  begin
+    Application.MessageBox('Não existe o registro informado','Erro', MB_ICONINFORMATION+MB_OKCANCEL);
+  end;
+
+end;
+
+procedure TFrmPesquisa.BtnSairClick(Sender: TObject);
+begin
+  if Application.Messagebox('Deseja sair desta aba ?', 'Confirmação', MB_ICONINFORMATION+MB_OKCANCEL) = MROK then
+  begin
+    Close;
+  end
+  else
+  abort;
+end;
+
+procedure TFrmPesquisa.CBChaveChange(Sender: TObject);
+begin
+  //Habilita e desabilita componentes
+  case CBChave.ItemIndex of
+  0:Begin
+    //Pesquisa por código
+    EdtDescricao.Visible:= true;
+    LblDescricao.Caption := 'Digite o código';
+    LblDescricao.Visible := true;
+    LblInicio.Visible := false;
+    MKInicio.Visible := false;
+    LblFim.Visible := False;
+    MKFim.Visible := False;
+    EdtDescricao.SetFocus;
+    EdtDescricao.Clear;
+  end;
+
+   1:Begin
+    //Pesquisa por descrição
+    EdtDescricao.Visible:= true;
+    LblDescricao.Caption := 'Digite o tipo:';
+    LblDescricao.Visible:= true;
+    LblInicio.Visible := false;
+    MKinicio.Visible := false;
+    LblFim.Visible := false;
+    MkFim.Visible := false;
+    EdtDescricao.SetFocus;
+    EdtDescricao.Clear;
+   end;
+
+    2:Begin
+    //Pesquisa por DATA
+    EdtDescricao.Visible := false;
+    LblDescricao.Visible := false;
+    LblInicio.Caption := 'Digite a data:';
+    LblInicio.Visible := true;
+    MKinicio.Visible := true;
+    LblFim.Visible := false;
+    MkFim.Visible := false;
+    MkInicio.SetFocus;
+    MKinicio.Clear;
+    end;
+
+    3:Begin
+    //Pesquisa por periodo
+    EdtDescricao.Visible := false;
+    LblDescricao.Visible := true;
+    LblDescricao.Caption := 'DIGITE O PERIODO';
+    LblInicio.Visible := true;
+    LblInicio.Caption := 'Inicio:';
+    MKInicio.Visible := true;
+    LblFim.Visible := true;
+    LblFim.Caption := 'Fim:';
+    MkFim.Visible := true;
+    MkInicio.SetFocus;
+    MKinicio.Clear;
+    MKfim.Clear;
+    end;
+
+    4: Begin
+    //Pesquisa por todos os campos
+    EdtDescricao.Visible := false;
+    LblDescricao.Visible := true;
+    LblDescricao.Caption := 'MOSTRANDO TODOS OS USUARIOS';
+    LblInicio.Visible := false;
+    MkInicio.Visible := false;
+    LblFim.Visible := false;
+    MkFim.Visible := false;
+    DM.sqlMovimento.CommandText := 'SELECT * FROM MOVIMENTO';
+    DM.cdsMovimento.Open;
+
+
+    end;
+
+  end;
+end;
+
+end.

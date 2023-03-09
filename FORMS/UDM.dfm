@@ -1,0 +1,232 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 277
+  Width = 488
+  object Conexao: TSQLConnection
+    ConnectionName = 'IBConnection'
+    DriverName = 'Interbase'
+    GetDriverFunc = 'getSQLDriverINTERBASE'
+    LibraryName = 'dbxint30.dll'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=Interbase'
+      
+        'Database=C:\Documents and Settings\Aldo\Meus documentos\Projetos' +
+        ' Delphi\FINANCEIRO\XE\DADOS\FINANCEIRO.FDB'
+      'RoleName=RoleName'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'ServerCharSet='
+      'SQLDialect=3'
+      'ErrorResourceFile='
+      'LocaleCode=0000'
+      'BlobSize=-1'
+      'CommitRetain=False'
+      'WaitOnLocks=True'
+      'Interbase TransIsolation=ReadCommited'
+      'Trim Char=False')
+    VendorLib = 'gds32.dll'
+    Connected = True
+    Left = 35
+    Top = 5
+  end
+  object sqlMovimento: TSQLDataSet
+    SchemaName = 'sysdba'
+    CommandText = 'SELECT * FROM MOVIMENTO ORDER BY IDMOVIMENTO'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = Conexao
+    Left = 20
+    Top = 55
+    object sqlMovimentoIDMOVIMENTO: TIntegerField
+      FieldName = 'IDMOVIMENTO'
+      Required = True
+    end
+    object sqlMovimentoCADASTRO: TDateField
+      FieldName = 'CADASTRO'
+      Required = True
+    end
+    object sqlMovimentoUSUARIO: TStringField
+      FieldName = 'USUARIO'
+      Required = True
+      Size = 100
+    end
+    object sqlMovimentoTIPO: TStringField
+      FieldName = 'TIPO'
+      Required = True
+      Size = 60
+    end
+    object sqlMovimentoVALOR: TFMTBCDField
+      FieldName = 'VALOR'
+      Required = True
+      Precision = 15
+      Size = 2
+    end
+  end
+  object dspMovimento: TDataSetProvider
+    DataSet = sqlMovimento
+    Left = 25
+    Top = 110
+  end
+  object cdsMovimento: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspMovimento'
+    Left = 30
+    Top = 155
+    object cdsMovimentoIDMOVIMENTO: TIntegerField
+      FieldName = 'IDMOVIMENTO'
+      Required = True
+    end
+    object cdsMovimentoCADASTRO: TDateField
+      FieldName = 'CADASTRO'
+      Required = True
+    end
+    object cdsMovimentoUSUARIO: TStringField
+      FieldName = 'USUARIO'
+      Required = True
+      Size = 100
+    end
+    object cdsMovimentoTIPO: TStringField
+      FieldName = 'TIPO'
+      Required = True
+      Size = 60
+    end
+    object cdsMovimentoVALOR: TFMTBCDField
+      FieldName = 'VALOR'
+      Required = True
+      currency = True
+      Precision = 15
+      Size = 2
+    end
+  end
+  object dtsMovimento: TDataSource
+    DataSet = cdsMovimento
+    Left = 25
+    Top = 210
+  end
+  object dtsPesquisa: TDataSource
+    DataSet = cdsPesquisa
+    Left = 105
+    Top = 210
+  end
+  object cdsPesquisa: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspPesquisa'
+    Left = 105
+    Top = 155
+    object cdsPesquisaIDMOVIMENTO: TIntegerField
+      FieldName = 'IDMOVIMENTO'
+      Required = True
+    end
+    object cdsPesquisaCADASTRO: TDateField
+      FieldName = 'CADASTRO'
+      Required = True
+    end
+    object cdsPesquisaUSUARIO: TStringField
+      FieldName = 'USUARIO'
+      Required = True
+      Size = 100
+    end
+    object cdsPesquisaTIPO: TStringField
+      FieldName = 'TIPO'
+      Required = True
+      Size = 60
+    end
+    object cdsPesquisaVALOR: TFMTBCDField
+      FieldName = 'VALOR'
+      Required = True
+      Precision = 15
+      Size = 2
+    end
+  end
+  object dspPesquisa: TDataSetProvider
+    DataSet = sqlPesquisa
+    Left = 105
+    Top = 110
+  end
+  object sqlPesquisa: TSQLDataSet
+    SchemaName = 'sysdba'
+    CommandText = 'SELECT * FROM MOVIMENTO'#13#10'ORDER BY IDMOVIMENTO'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = Conexao
+    Left = 105
+    Top = 60
+    object sqlPesquisaIDMOVIMENTO: TIntegerField
+      FieldName = 'IDMOVIMENTO'
+      Required = True
+    end
+    object sqlPesquisaCADASTRO: TDateField
+      FieldName = 'CADASTRO'
+      Required = True
+    end
+    object sqlPesquisaUSUARIO: TStringField
+      FieldName = 'USUARIO'
+      Required = True
+      Size = 100
+    end
+    object sqlPesquisaTIPO: TStringField
+      FieldName = 'TIPO'
+      Required = True
+      Size = 60
+    end
+    object sqlPesquisaVALOR: TFMTBCDField
+      FieldName = 'VALOR'
+      Required = True
+      Precision = 15
+      Size = 2
+    end
+  end
+  object sqlUsuario: TSQLDataSet
+    SchemaName = 'sysdba'
+    CommandText = 'SELECT * FROM USUARIO'#13#10'ORDER BY IDUSUARIO'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = Conexao
+    Left = 180
+    Top = 60
+  end
+  object dspUsuario: TDataSetProvider
+    DataSet = sqlUsuario
+    Left = 180
+    Top = 110
+  end
+  object cdsUsuario: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspUsuario'
+    Left = 180
+    Top = 155
+    object cdsUsuarioIDUSUARIO: TIntegerField
+      FieldName = 'IDUSUARIO'
+      Required = True
+    end
+    object cdsUsuarioNOME: TStringField
+      FieldName = 'NOME'
+      Required = True
+      Size = 100
+    end
+    object cdsUsuarioSENHA: TStringField
+      FieldName = 'SENHA'
+      Required = True
+      Size = 30
+    end
+    object cdsUsuarioTIPO: TStringField
+      FieldName = 'TIPO'
+      Required = True
+      Size = 30
+    end
+    object cdsUsuarioCADASTRO: TDateField
+      FieldName = 'CADASTRO'
+      Required = True
+    end
+  end
+  object dtsUsuario: TDataSource
+    DataSet = cdsUsuario
+    Left = 180
+    Top = 210
+  end
+end

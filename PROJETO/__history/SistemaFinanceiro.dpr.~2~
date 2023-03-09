@@ -1,0 +1,15 @@
+program SistemaFinanceiro;
+
+uses
+  Forms,
+  UMovimento in '..\FORMS\UMovimento.pas' {FrmMovimento},
+  UDM in '..\FORMS\UDM.pas' {DataModule1: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFrmMovimento, FrmMovimento);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.Run;
+end.

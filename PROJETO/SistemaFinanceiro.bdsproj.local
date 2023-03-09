@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/03/06 10:00:11.295.pas,C:\Documents and Settings\Aldo\Meus documentos\Borland Studio Projects\Unit1.pas=C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\FORMS\UMovimento.pas</Transaction>
+    <Transaction>2023/03/06 10:00:11.295.dfm,C:\Documents and Settings\Aldo\Meus documentos\Borland Studio Projects\Unit1.dfm=C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\FORMS\UMovimento.dfm</Transaction>
+    <Transaction>2023/03/06 10:00:32.215.bdsproj,C:\Documents and Settings\Aldo\Meus documentos\Borland Studio Projects\Project1.bdsproj=C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\PROJETO\SistemaFinanceiro.bdsproj</Transaction>
+    <Transaction>2023/03/06 11:20:53.982.pas,C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\PROJETO\Unit1.pas=C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\FORMS\UDM.pas</Transaction>
+    <Transaction>2023/03/06 11:20:53.982.dfm,C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\PROJETO\Unit1.dfm=C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\FORMS\UDM.dfm</Transaction>
+    <Transaction>2023/03/06 14:01:02.357.pas,C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\PROJETO\Unit1.pas=C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\FORMS\UPesquisa.pas</Transaction>
+    <Transaction>2023/03/06 14:01:02.357.dfm,C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\PROJETO\Unit1.dfm=C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\FORMS\UPesquisa.dfm</Transaction>
+    <Transaction>2023/03/08 13:36:19.218.pas,C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\PROJETO\Unit1.pas=C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\FORMS\UMenu.pas</Transaction>
+    <Transaction>2023/03/08 13:36:19.218.dfm,C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\PROJETO\Unit1.dfm=C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\FORMS\UMenu.dfm</Transaction>
+    <Transaction>2023/03/08 14:26:33.007.pas,C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\PROJETO\Unit1.pas=C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\FORMS\UUsuario.pas</Transaction>
+    <Transaction>2023/03/08 14:26:33.007.dfm,C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\PROJETO\Unit1.dfm=C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\FORMS\UUsuario.dfm</Transaction>
+    <Transaction>2023/03/08 16:55:48.771.pas,C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\PROJETO\Unit1.pas=C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\FORMS\UPesquisaUsuario.pas</Transaction>
+    <Transaction>2023/03/08 16:55:48.771.dfm,C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\PROJETO\Unit1.dfm=C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\FINANCEIRO\FORMS\UPesquisaUsuario.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

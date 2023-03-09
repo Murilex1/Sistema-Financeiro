@@ -1,0 +1,35 @@
+unit UUsuario;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, DBCtrls, ExtCtrls;
+
+type
+  TFrmUsuario = class(TForm)
+    PnlRodape: TPanel;
+    DBNavigator1: TDBNavigator;
+    PnlTopo: TPanel;
+    BtnPesquisar: TBitBtn;
+    BtnAtualizar: TBitBtn;
+    BtnCancelar: TBitBtn;
+    BtnGravar: TBitBtn;
+    BtnDeletar: TBitBtn;
+    BtnEditar: TBitBtn;
+    BtnNovo: TBitBtn;
+    BtnSair: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmUsuario: TFrmUsuario;
+
+implementation
+
+{$R *.dfm}
+
+end.

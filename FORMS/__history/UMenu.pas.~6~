@@ -25,7 +25,6 @@ type
     ListadeUsuarios: TMenuItem;
     Sobre: TMenuItem;
     Informacoes: TMenuItem;
-    procedure InformacoesClick(Sender: TObject);
     procedure ListadeUsuariosClick(Sender: TObject);
     procedure ListaMovimentosClick(Sender: TObject);
     procedure SairClick(Sender: TObject);
@@ -46,7 +45,7 @@ var
 
 implementation
 
-uses UMovimento, UPesquisa, UUsuario, UPesquisaUsuario, UInformacoes;
+uses UMovimento, UPesquisa, UUsuario, UPesquisaUsuario;
 
 {$R *.dfm}
 
@@ -84,18 +83,6 @@ begin
   finally
     FrmUsuario.free;
     FrmUsuario:= nil;
-  end;
-end;
-
-procedure TFrmMenu.InformacoesClick(Sender: TObject);
-begin
-  FrmInformacoes := TFrmInformacoes.Create(Self);
-  FrmInformacoes.ShowModal;
-  try
-
-  finally
-    FrmInformacoes.Free;
-    FrmInformacoes:= nil;
   end;
 end;
 
@@ -139,8 +126,8 @@ end;
 
 procedure TFrmMenu.Timer1Timer(Sender: TObject);
 begin
-    StatusBar1.Panels[0].Text:= 'Data: '+DateToStr(Now);
-    StatusBar1.Panels[1].Text:= 'Horas: '+TimeToStr(Now);
+    StatusBar1.Panels[0].Text:= DateToStr(Now);
+    StatusBar1.Panels[1].Text:= TimeToStr(Now);
     StatusBar1.Panels[2].Text:= 'Seja bem vindo';
 end;
 

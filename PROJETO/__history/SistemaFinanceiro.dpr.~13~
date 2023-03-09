@@ -9,13 +9,14 @@ uses
   UUsuario in '..\FORMS\UUsuario.pas' {FrmUsuario},
   UPesquisaUsuario in '..\FORMS\UPesquisaUsuario.pas' {FrmPesquisaUsuario},
   UInformacoes in '..\FORMS\UInformacoes.pas' {FrmInformacoes},
-  ULogin in '..\FORMS\ULogin.pas' {FrmLogin};
+  ULogin in '..\FORMS\ULogin.pas' {Form1};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TDM, DM);
-  Application.CreateForm(TFrmLogin, FrmLogin);
+  Application.CreateForm(TFrmMenu, FrmMenu);
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.

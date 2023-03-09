@@ -10,9 +10,7 @@ object DM: TDM
     LoginPrompt = False
     Params.Strings = (
       'DriverName=Interbase'
-      
-        'Database=192.168.0.140:C:\GitHub\Sistema-Financeiro\XE\DADOS\FIN' +
-        'ANCEIRO.FDB'
+      'Database=E:\GitHub\Sistema-Financeiro\XE\DADOS\FINANCEIRO.FDB'
       'RoleName=RoleName'
       'User_Name=sysdba'
       'Password=masterkey'
@@ -26,7 +24,6 @@ object DM: TDM
       'Interbase TransIsolation=ReadCommited'
       'Trim Char=False')
     VendorLib = 'gds32.dll'
-    Connected = True
     Left = 35
     Top = 5
   end

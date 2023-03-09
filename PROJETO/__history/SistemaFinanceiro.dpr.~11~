@@ -8,14 +8,15 @@ uses
   UMenu in '..\FORMS\UMenu.pas' {FrmMenu},
   UUsuario in '..\FORMS\UUsuario.pas' {FrmUsuario},
   UPesquisaUsuario in '..\FORMS\UPesquisaUsuario.pas' {FrmPesquisaUsuario},
-  UInformacoes in '..\FORMS\UInformacoes.pas' {FrmInformacoes},
-  ULogin in '..\FORMS\ULogin.pas' {FrmLogin};
+  UInformacoes in '..\FORMS\UInformacoes.pas' {AboutBox};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TDM, DM);
-  Application.CreateForm(TFrmLogin, FrmLogin);
+  Application.CreateForm(TFrmMenu, FrmMenu);
+  Application.CreateForm(TFrmPesquisaUsuario, FrmPesquisaUsuario);
+  Application.CreateForm(TAboutBox, AboutBox);
   Application.Run;
 end.

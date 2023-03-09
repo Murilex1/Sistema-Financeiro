@@ -89,20 +89,12 @@ begin
     4:
     begin
       dm.cdsUsuario.Close;
-      dm.sqlUsuario.CommandText := 'SELECT * FROM USUARIO WHERE CADASTRO = '''+MKInicio.Text+'''';
-      dm.cdsUsuario.Open;
-    end;
-
-    //Opção de pesquisa por periodo
-    5:
-    begin
-      dm.cdsUsuario.Close;
-      dm.sqlUsuario.CommandText := 'SELECT * FROM USUARIO WHERE CADASTRO BETWEEN '''+MKInicio.Text+''' AND '''+MKFim.Text+'''';
+      dm.sqlUsuario.CommandText := 'SELECT * FROM USUARIO WHERE CADASTRO ';
       dm.cdsUsuario.Open;
     end;
 
     //Opção de pesquisar todos os usuarios
-    6:
+    5:
     begin
       dm.cdsUsuario.Close;
       dm.sqlUsuario.CommandText := 'SELECT * FROM USUARIO';
@@ -131,10 +123,10 @@ end;
 
 procedure TFrmPesquisaUsuario.BtnTransferirClick(Sender: TObject);
 begin
-  //Faz a variavel receber o registro selecionado
-  if dm.cdsUsuario.RecordCount > 0 then
+//Faz a variavel receber o registro selecionado
+  if dm.cdsPesquisa.RecordCount > 0 then
   begin
-    Codigo:= dm.cdsUsuarioIDUSUARIO.AsInteger;
+    Codigo:= dm.cdsPesquisaIDMOVIMENTO.AsInteger;
   end;
 
 
@@ -157,34 +149,8 @@ begin
     EdtDescricao.Clear;
   end;
 
-    1:begin
-    //Pesquisa Por Nome
-    EdtDescricao.Visible := True;
-    LblDescricao.Caption := 'Digite o nome';
-    LblDescricao.Visible := True;
-    LblInicio.Visible := false;
-    LblFim.Visible := false;
-    MKInicio.Visible := false;
-    MKFIM.Visible := false;
-    EdtDescricao.SetFocus;
-    end;
-
-
-    2:Begin
-    //Pesquisa por SENHA
-    EdtDescricao.Visible := True;
-    LblDescricao.Visible := True;
-    LblDescricao.Caption := 'Digite a Senha:';
-    LblInicio.Visible := false;
-    MKinicio.Visible := false;
-    LblFim.Visible := false;
-    MkFim.Visible := false;
-    EdtDescricao.SetFocus;
-    EdtDescricao.Clear;
-    end;
-
-    3:Begin
-    //Pesquisa por TIPO
+   1:Begin
+    //Pesquisa por descrição
     EdtDescricao.Visible:= true;
     LblDescricao.Caption := 'Digite o tipo:';
     LblDescricao.Visible:= true;
@@ -194,23 +160,23 @@ begin
     MkFim.Visible := false;
     EdtDescricao.SetFocus;
     EdtDescricao.Clear;
-    end;
+   end;
 
-   4:Begin
-    //Pesquisa por data de cadastro
-    EdtDescricao.Visible:= false;
+    2:Begin
+    //Pesquisa por DATA
+    EdtDescricao.Visible := false;
     LblDescricao.Visible := false;
-    LblInicio.Caption := 'Digite a data';
+    LblInicio.Caption := 'Digite a data:';
     LblInicio.Visible := true;
     MKinicio.Visible := true;
     LblFim.Visible := false;
     MkFim.Visible := false;
-    MKInicio.SetFocus;
-    MKInicio.Clear;
-   end;
+    MkInicio.SetFocus;
+    MKinicio.Clear;
+    end;
 
-    5:begin
-    //Pesquisa por periodo, entre inicio e fim
+    3:Begin
+    //Pesquisa por periodo
     EdtDescricao.Visible := false;
     LblDescricao.Visible := true;
     LblDescricao.Caption := 'DIGITE O PERIODO';
@@ -225,8 +191,7 @@ begin
     MKfim.Clear;
     end;
 
-
-    6: Begin
+    4: Begin
     //Pesquisa por todos os campos
     EdtDescricao.Visible := false;
     LblDescricao.Visible := true;

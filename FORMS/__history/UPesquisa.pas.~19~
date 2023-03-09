@@ -182,6 +182,7 @@ begin
     Codigo:= dm.cdsPesquisaIDMOVIMENTO.AsInteger;
   end;
 
+
 end;
 
 procedure TFrmPesquisa.CBChaveChange(Sender: TObject);
@@ -278,16 +279,3 @@ begin
 end;
 
 end.
-
-
-
-      //Para funcionalidade do enter ou tab
-//procedure TFormCadastraSocios.DBEditCodigoSocioKeyPress(Sender: TObject;
-//  var Key: Char);
-//begin
-//  if (Key = #13) then
-//  begin
-//    Key := #0;
-//    SelectNext((Sender as TwinControl),True,True);
-//  end;
-//end;

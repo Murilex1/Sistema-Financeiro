@@ -16,6 +16,7 @@ uses
 begin
   Application.Initialize;
   Application.CreateForm(TDM, DM);
+  Application.CreateForm(TFrmMenu, FrmMenu);
   Application.CreateForm(TFrmLogin, FrmLogin);
   Application.Run;
 end.

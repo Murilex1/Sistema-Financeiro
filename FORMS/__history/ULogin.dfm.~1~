@@ -1,0 +1,66 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 255
+  ClientWidth = 588
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object LblNome: TLabel
+    Left = 35
+    Top = 56
+    Width = 31
+    Height = 13
+    Caption = 'Nome:'
+  end
+  object LblSenha: TLabel
+    Left = 35
+    Top = 130
+    Width = 34
+    Height = 13
+    Caption = 'Senha:'
+  end
+  object Image1: TImage
+    Left = 385
+    Top = 50
+    Width = 161
+    Height = 145
+  end
+  object EdtNome: TEdit
+    Left = 35
+    Top = 75
+    Width = 196
+    Height = 21
+    TabOrder = 0
+  end
+  object EdtSenha: TEdit
+    Left = 35
+    Top = 149
+    Width = 196
+    Height = 21
+    TabOrder = 1
+  end
+  object BitBtn1: TBitBtn
+    Left = 55
+    Top = 210
+    Width = 75
+    Height = 25
+    Caption = 'BitBtn1'
+    TabOrder = 2
+  end
+  object BitBtn2: TBitBtn
+    Left = 230
+    Top = 210
+    Width = 75
+    Height = 25
+    Caption = 'BitBtn1'
+    TabOrder = 3
+  end
+end

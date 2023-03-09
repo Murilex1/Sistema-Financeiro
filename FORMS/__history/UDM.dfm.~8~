@@ -11,8 +11,8 @@ object DM: TDM
     Params.Strings = (
       'DriverName=Interbase'
       
-        'Database=192.168.0.140:C:\GitHub\Sistema-Financeiro\XE\DADOS\FIN' +
-        'ANCEIRO.FDB'
+        'Database=C:\Documents and Settings\Aldo\Meus documentos\Projetos' +
+        ' Delphi\FINANCEIRO\XE\DADOS\FINANCEIRO.FDB'
       'RoleName=RoleName'
       'User_Name=sysdba'
       'Password=masterkey'
@@ -111,6 +111,7 @@ object DM: TDM
     Top = 210
   end
   object cdsPesquisa: TClientDataSet
+    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'dspPesquisa'

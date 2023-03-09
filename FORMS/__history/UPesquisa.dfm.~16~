@@ -1,24 +1,26 @@
 object FrmPesquisa: TFrmPesquisa
-  Left = 0
-  Top = 0
+  Left = 356
+  Top = 81
   Caption = 'FORMUL'#193'RIO DE PESQUISA'
   ClientHeight = 709
-  ClientWidth = 1326
+  ClientWidth = 1450
   Color = clTeal
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  KeyPreview = True
   OldCreateOrder = False
   Position = poDesigned
   WindowState = wsMaximized
+  OnKeyPress = FormKeyPress
   PixelsPerInch = 96
   TextHeight = 13
   object PnlTopo: TPanel
     Left = 0
     Top = 0
-    Width = 1326
+    Width = 1450
     Height = 86
     Align = alTop
     BevelOuter = bvNone
@@ -93,7 +95,9 @@ object FrmPesquisa: TFrmPesquisa
       Margins.Top = 0
       Margins.Bottom = 0
       Caption = '&Transferir'
-      TabOrder = 0
+      ModalResult = 1
+      TabOrder = 6
+      OnClick = BtnTransferirClick
       Glyph.Data = {
         42400000424D4240000000000000420000002800000040000000400000000100
         20000300000000400000000000000000000000000000000000000000FF0000FF
@@ -620,7 +624,7 @@ object FrmPesquisa: TFrmPesquisa
       Margins.Top = 0
       Margins.Bottom = 0
       Caption = '&Pesquisar'
-      TabOrder = 1
+      TabOrder = 4
       OnClick = BtnPesquisaClick
       Glyph.Data = {
         36100000424D3610000000000000360000002800000020000000200000000100
@@ -763,7 +767,7 @@ object FrmPesquisa: TFrmPesquisa
       Margins.Top = 0
       Margins.Bottom = 0
       Caption = '&Imprimir'
-      TabOrder = 2
+      TabOrder = 5
       Glyph.Data = {
         36400000424D3640000000000000360000002800000040000000400000000100
         20000000000000400000C40E0000C40E00000000000000000000000000000000
@@ -1292,14 +1296,14 @@ object FrmPesquisa: TFrmPesquisa
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 3
+      TabOrder = 1
     end
     object MKInicio: TMaskEdit
       Left = 445
       Top = 40
-      Width = 195
+      Width = 189
       Height = 24
-      EditMask = '!99/99/0000;1;_'
+      EditMask = '!99.99.0000;1;_'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -1307,15 +1311,15 @@ object FrmPesquisa: TFrmPesquisa
       Font.Style = []
       MaxLength = 10
       ParentFont = False
-      TabOrder = 4
-      Text = '  /  /    '
+      TabOrder = 2
+      Text = '  .  .    '
     end
     object MKFim: TMaskEdit
       Left = 670
       Top = 40
-      Width = 200
+      Width = 198
       Height = 24
-      EditMask = '!99/99/0000;1;_'
+      EditMask = '!99.99.0000;1;_'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -1323,8 +1327,8 @@ object FrmPesquisa: TFrmPesquisa
       Font.Style = []
       MaxLength = 10
       ParentFont = False
-      TabOrder = 5
-      Text = '  /  /    '
+      TabOrder = 3
+      Text = '  .  .    '
     end
     object CBChave: TComboBox
       Left = 30
@@ -1339,11 +1343,11 @@ object FrmPesquisa: TFrmPesquisa
       Font.Style = []
       ItemHeight = 16
       ParentFont = False
-      TabOrder = 6
+      TabOrder = 0
       OnChange = CBChaveChange
       Items.Strings = (
         'C'#211'DIGO'
-        'DESCRI'#199#195'O'
+        'TIPO'
         'DATA'
         'PERIODO'
         'TODOS')
@@ -1352,22 +1356,74 @@ object FrmPesquisa: TFrmPesquisa
   object PnlRodape: TPanel
     Left = 0
     Top = 659
-    Width = 1326
+    Width = 1450
     Height = 50
     Align = alBottom
     BevelOuter = bvNone
     Color = clGradientActiveCaption
     TabOrder = 1
+    object LblQtde: TLabel
+      Left = 45
+      Top = 6
+      Width = 36
+      Height = 16
+      Caption = 'Qtde:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object LblEntrada: TLabel
+      Left = 254
+      Top = 6
+      Width = 56
+      Height = 16
+      Caption = 'Entrada:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object LblSaida: TLabel
+      Left = 520
+      Top = 6
+      Width = 40
+      Height = 16
+      Caption = 'Saida:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object LblCaixa: TLabel
+      Left = 800
+      Top = 6
+      Width = 39
+      Height = 16
+      Caption = 'Caixa:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object BtnSair: TBitBtn
       AlignWithMargins = True
-      Left = 1188
+      Left = 1320
       Top = 3
       Width = 121
       Height = 45
       Margins.Top = 0
       Margins.Bottom = 0
       Caption = '&Sair'
-      TabOrder = 0
+      TabOrder = 1
       OnClick = BtnSairClick
       Glyph.Data = {
         36400000424D3640000000000000360000002800000040000000400000000100
@@ -1886,18 +1942,18 @@ object FrmPesquisa: TFrmPesquisa
         0000000000000000000000000000000000000000000000000000}
     end
     object DBNavigator1: TDBNavigator
-      Left = 456
-      Top = 4
+      Left = 1024
+      Top = 6
       Width = 224
       Height = 45
       VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
-      TabOrder = 1
+      TabOrder = 0
     end
   end
   object DBGrid1: TDBGrid
     Left = 0
     Top = 86
-    Width = 1326
+    Width = 1450
     Height = 573
     Align = alClient
     DataSource = DM.dtsPesquisa
@@ -1907,5 +1963,33 @@ object FrmPesquisa: TFrmPesquisa
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'IDMOVIMENTO'
+        Title.Caption = 'C'#211'DIGO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CADASTRO'
+        Title.Caption = 'DATA.DE.CADASTRO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'USUARIO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TIPO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VALOR'
+        Visible = True
+      end>
   end
 end

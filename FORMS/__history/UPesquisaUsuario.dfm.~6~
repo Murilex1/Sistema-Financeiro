@@ -1349,7 +1349,6 @@ object FrmPesquisaUsuario: TFrmPesquisaUsuario
         'SENHA'
         'TIPO'
         'CADASTRO'
-        'PERIODO'
         'TODOS OS USUARIOS')
     end
   end

@@ -7,15 +7,14 @@ uses
   UPesquisa in '..\FORMS\UPesquisa.pas' {FrmPesquisa},
   UMenu in '..\FORMS\UMenu.pas' {FrmMenu},
   UUsuario in '..\FORMS\UUsuario.pas' {FrmUsuario},
-  UPesquisaUsuario in '..\FORMS\UPesquisaUsuario.pas' {FrmPesquisaUsuario},
-  UInformacoes in '..\FORMS\UInformacoes.pas' {FrmInformacoes},
-  ULogin in '..\FORMS\ULogin.pas' {FrmLogin};
+  UPesquisaUsuario in '..\FORMS\UPesquisaUsuario.pas' {FrmPesquisaUsuario};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(TDM, DM);
-  Application.CreateForm(TFrmLogin, FrmLogin);
+  Application.CreateForm(TFrmMenu, FrmMenu);
+  Application.CreateForm(TFrmPesquisaUsuario, FrmPesquisaUsuario);
   Application.Run;
 end.

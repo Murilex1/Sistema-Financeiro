@@ -131,7 +131,7 @@ end;
 
 procedure TFrmPesquisaUsuario.BtnTransferirClick(Sender: TObject);
 begin
-  //Faz a variavel receber o registro selecionado
+//Faz a variavel receber o registro selecionado
   if dm.cdsUsuario.RecordCount > 0 then
   begin
     Codigo:= dm.cdsUsuarioIDUSUARIO.AsInteger;

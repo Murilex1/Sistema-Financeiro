@@ -54,7 +54,7 @@ begin
     dm.Usuario := EdtNome.Text;
     dm.Tipo := dm.cdsUsuarioTIPO.AsString;
     FrmMenu := TFrmMenu.Create(nil);
-    FrmMenu.Show;
+    FrmMenu.ShowModal;
   end
   //Se não pare
   else

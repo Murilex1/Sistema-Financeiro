@@ -23,8 +23,10 @@ type
     procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
+   Aldo: Integer;
   public
     { Public declarations }
+   Murilo: Integer;
   end;
 
 var
@@ -45,25 +47,37 @@ procedure TFrmLogin.BtnOkClick(Sender: TObject);
 var Login, Senha: String;
 begin
   //Validação de login, pesquisa de login no banco de  dados.
-  dm.cdsLogin.close;
-  dm.cdsLogin.Open;
-  //Se localizar o NOME e SENHA na tabela sendo igual nos Edt, passe
-  if dm.cdsLogin.Locate('NOME',EdtNome.Text,[]) and dm.cdsLogin.Locate ('SENHA', EdtSenha.Text,[]) then
+  with dm.cdsLogin do
   begin
-    //Trazendo variaveis USUARIO E TIPO
-    dm.Usuario := EdtNome.Text;
-    dm.Tipo := dm.cdsUsuarioTIPO.AsString;
-    FrmMenu := TFrmMenu.Create(nil);
-    FrmMenu.Show;
+    dm.cdsLogin.Close;
+    dm.cdsLogin.Open;
+    dm.sqlLogin.CommandText := 'SELECT NOME,SENHA FROM USUARIO WHERE NOME = '''+EdtNome.Text+'''AND SENHA = '''+EdtSenha.Text+'''';
+    //dm.cdsLoginNOME.Value;
+    //dm.cdsLoginSENHA.Value;
+    //Login := dm.sqlLogin.;
+
+
+        ShowMessage(dm.cdsLoginNOME.Value);
+    ShowMessage(dm.cdsLoginSENHA.Value);
+  end;
+
+  //Se não encontrar nada
+  if (Login <> EdtNome.Text) then
+  begin
+    Application.MessageBox('Usuario não encontrado', 'Usuario incorreto', MB_ICONINFORMATION+MB_OK);
+    Exit;
   end
-  //Se não pare
   else
+  //Se não, va para o Menu
   begin
-    Application.MessageBox('Usuario ou senha incorreto','Incorreto', MB_ICONEXCLAMATION+MB_OK);
-    EdtNome.Clear;
-    EdtSenha.Clear;
-    EdtNome.SetFocus;
-    Abort;
+    FrmMenu := TFrmMenu.Create(self);
+    FrmMenu.Show;
+    try
+
+    finally
+      FrmMenu.Free;
+      FrmMenu:= nil;
+    end;
   end;
 end;
 

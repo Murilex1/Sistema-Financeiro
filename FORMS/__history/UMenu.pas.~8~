@@ -25,8 +25,6 @@ type
     ListadeUsuarios: TMenuItem;
     Sobre: TMenuItem;
     Informacoes: TMenuItem;
-    BtnTrocaDeUsuario: TSpeedButton;
-    procedure BtnTrocaDeUsuarioClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure InformacoesClick(Sender: TObject);
     procedure ListadeUsuariosClick(Sender: TObject);
@@ -76,15 +74,6 @@ begin
   end
   else
   Abort;
-end;
-
-procedure TFrmMenu.BtnTrocaDeUsuarioClick(Sender: TObject);
-begin
-  //Troca de usuario
-  FrmMenu.Hide;
-  FrmLogin.EdtNome.Clear;
-  FrmLogin.EdtSenha.Clear;
-  FrmLogin.EdtNome.SetFocus;
 end;
 
 procedure TFrmMenu.BtnUsuariosClick(Sender: TObject);

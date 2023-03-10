@@ -27,7 +27,7 @@ object DM: TDM
       'Trim Char=False')
     VendorLib = 'gds32.dll'
     Left = 35
-    Top = 10
+    Top = 5
   end
   object sqlMovimento: TSQLDataSet
     SchemaName = 'sysdba'

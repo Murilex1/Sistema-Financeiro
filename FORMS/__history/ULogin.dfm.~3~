@@ -2128,13 +2128,12 @@ object FrmLogin: TFrmLogin
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
-    MaxLength = 10
     ParentFont = False
     TabOrder = 0
   end
   object EdtSenha: TEdit
     Left = 35
-    Top = 142
+    Top = 139
     Width = 206
     Height = 24
     Font.Charset = DEFAULT_CHARSET
@@ -2143,7 +2142,6 @@ object FrmLogin: TFrmLogin
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    PasswordChar = '*'
     TabOrder = 1
   end
   object BtnOk: TBitBtn
@@ -2153,7 +2151,6 @@ object FrmLogin: TFrmLogin
     Height = 30
     Caption = '&Ok'
     TabOrder = 2
-    OnClick = BtnOkClick
     Glyph.Data = {
       36100000424D3610000000000000360000002800000020000000200000000100
       20000000000000100000C40E0000C40E00000000000000000000000000000000
@@ -2293,7 +2290,6 @@ object FrmLogin: TFrmLogin
     Height = 30
     Caption = '&Cancelar'
     TabOrder = 3
-    OnClick = BtnCancelarClick
     Glyph.Data = {
       36100000424D3610000000000000360000002800000020000000200000000100
       20000000000000100000C40E0000C40E00000000000000000000000000000000

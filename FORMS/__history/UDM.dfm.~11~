@@ -12,7 +12,7 @@ object DM: TDM
       'DriverName=Interbase'
       
         'Database=C:\Documents and Settings\Aldo\Meus documentos\Projetos' +
-        ' Delphi\Sistema-Financeiro\EXE\DADOS\FINANCEIRO.FDB'
+        ' Delphi\Sistema-Financeiro\XE\DADOS\FINANCEIRO.FDB'
       'RoleName=RoleName'
       'User_Name=sysdba'
       'Password=masterkey'
@@ -26,8 +26,9 @@ object DM: TDM
       'Interbase TransIsolation=ReadCommited'
       'Trim Char=False')
     VendorLib = 'gds32.dll'
+    Connected = True
     Left = 35
-    Top = 10
+    Top = 5
   end
   object sqlMovimento: TSQLDataSet
     SchemaName = 'sysdba'
@@ -233,6 +234,7 @@ object DM: TDM
     Top = 210
   end
   object cdsLogin: TClientDataSet
+    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'dspLogin'

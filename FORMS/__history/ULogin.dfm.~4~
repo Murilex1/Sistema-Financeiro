@@ -2128,7 +2128,6 @@ object FrmLogin: TFrmLogin
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
-    MaxLength = 10
     ParentFont = False
     TabOrder = 0
   end

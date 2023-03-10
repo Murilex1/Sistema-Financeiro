@@ -113,7 +113,6 @@ begin
   dm.cdsMovimentoIDMOVIMENTO.AsInteger := proximo;   //O campo ID recebe o valor da variavel proximo
   DBEdit3.SetFocus;   //Leva o foco para o DBEdit3
   dm.cdsMovimentoCADASTRO.AsDateTime:=Date;  //O campo CADASTRO recebe a data atualizada
-  dm.cdsMovimentoUSUARIO.AsString := dm.Usuario;
 end;
 
 procedure TFrmMovimento.BtnPesquisarClick(Sender: TObject);

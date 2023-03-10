@@ -45,20 +45,10 @@ type
     cdsUsuarioSENHA: TStringField;
     cdsUsuarioTIPO: TStringField;
     cdsUsuarioCADASTRO: TDateField;
-    dtsLogin: TDataSource;
-    cdsLogin: TClientDataSet;
-    dspLogin: TDataSetProvider;
-    sqlLogin: TSQLDataSet;
-    cdsLoginIDUSUARIO: TIntegerField;
-    cdsLoginNOME: TStringField;
-    cdsLoginSENHA: TStringField;
-    cdsLoginTIPO: TStringField;
-    cdsLoginCADASTRO: TDateField;
   private
     { Private declarations }
   public
     { Public declarations }
-    Usuario,Tipo: String;
   end;
 
 var

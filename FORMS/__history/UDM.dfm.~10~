@@ -11,8 +11,8 @@ object DM: TDM
     Params.Strings = (
       'DriverName=Interbase'
       
-        'Database=C:\Documents and Settings\Aldo\Meus documentos\Projetos' +
-        ' Delphi\Sistema-Financeiro\EXE\DADOS\FINANCEIRO.FDB'
+        'Database=192.168.0.140:C:\GitHub\Sistema-Financeiro\XE\DADOS\FIN' +
+        'ANCEIRO.FDB'
       'RoleName=RoleName'
       'User_Name=sysdba'
       'Password=masterkey'
@@ -26,8 +26,9 @@ object DM: TDM
       'Interbase TransIsolation=ReadCommited'
       'Trim Char=False')
     VendorLib = 'gds32.dll'
+    Connected = True
     Left = 35
-    Top = 10
+    Top = 5
   end
   object sqlMovimento: TSQLDataSet
     SchemaName = 'sysdba'
@@ -226,54 +227,5 @@ object DM: TDM
     DataSet = cdsUsuario
     Left = 180
     Top = 210
-  end
-  object dtsLogin: TDataSource
-    DataSet = cdsLogin
-    Left = 275
-    Top = 210
-  end
-  object cdsLogin: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'dspLogin'
-    Left = 275
-    Top = 160
-    object cdsLoginIDUSUARIO: TIntegerField
-      FieldName = 'IDUSUARIO'
-      Required = True
-    end
-    object cdsLoginNOME: TStringField
-      FieldName = 'NOME'
-      Required = True
-      Size = 100
-    end
-    object cdsLoginSENHA: TStringField
-      FieldName = 'SENHA'
-      Required = True
-      Size = 30
-    end
-    object cdsLoginTIPO: TStringField
-      FieldName = 'TIPO'
-      Required = True
-      Size = 30
-    end
-    object cdsLoginCADASTRO: TDateField
-      FieldName = 'CADASTRO'
-      Required = True
-    end
-  end
-  object dspLogin: TDataSetProvider
-    DataSet = sqlLogin
-    Left = 275
-    Top = 110
-  end
-  object sqlLogin: TSQLDataSet
-    SchemaName = 'sysdba'
-    CommandText = 'SELECT * FROM USUARIO'
-    MaxBlobSize = -1
-    Params = <>
-    SQLConnection = Conexao
-    Left = 275
-    Top = 60
   end
 end

@@ -119,8 +119,8 @@
 			<Linker Name="ExeDescription"></Linker>
 		</Linker>
 		<Directories>
-			<Directories Name="OutputDir"></Directories>
-			<Directories Name="UnitOutputDir"></Directories>
+			<Directories Name="OutputDir">C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\Sistema-Financeiro\EXE</Directories>
+			<Directories Name="UnitOutputDir">C:\Documents and Settings\Aldo\Meus documentos\Projetos Delphi\Sistema-Financeiro\DCU</Directories>
 			<Directories Name="PackageDLLOutputDir"></Directories>
 			<Directories Name="PackageDCPOutputDir"></Directories>
 			<Directories Name="SearchPath"></Directories>
